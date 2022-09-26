@@ -29,6 +29,10 @@ const StoreModel = {
     getWeatherForecast(actions, data);
   }),
   getCities: thunk(async (actions, city) => {
+    if (city === "") {
+      actions.setCities([]);
+      return;
+    }
     const options = {
       method: "GET",
       url: "https://wft-geo-db.p.rapidapi.com/v1/geo/cities",
@@ -51,6 +55,15 @@ const StoreModel = {
 
     const { data } = response;
     actions.setCities(data);
+  }),
+  setSelectedCity: thunk(async (actions, city) => {
+    actions.setCurrentCity(city);
+
+    const data = {
+      coordinates: { latitude: city.latitude, longitude: city.longitude },
+    };
+    getWeather(actions, data);
+    getWeatherForecast(actions, data);
   }),
   // Actions
   setCurrentCity: action((state, currentCity) => {
@@ -92,15 +105,3 @@ const getWeatherForecast = async (actions, city) => {
   const { data } = response;
   actions.setForecast(data);
 };
-
-// const getWeather = async () => {
-//   const response = await axios.get(
-//     `https://api.openweathermap.org/data/2.5/weather?lat=${coordinates.latitude}&lon=${coordinates.longitude}&units=metric&appid=739c38980e42994dcda91a12e651d06f`
-//   );
-//   if (!response) {
-//     throw new Error();
-//   }
-
-//   const { data } = response;
-//   return data;
-// };
