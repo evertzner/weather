@@ -12,6 +12,7 @@ This app allows you to see current weather and forecast for your location or for
     - [Screenshots](#screenshots)
   - [My process](#my-process)
     - [Built with](#built-with)
+    - [APIs](#apis)
   - [Author](#author)
 
 ## Links
@@ -27,7 +28,7 @@ Users should be able to:
 
 - See current weather
 - See weather for following hours
-- See weather forecast for next 5 days
+- See weather forecast for following days
 - Change city weather by searching it
 
 ### Screenshots
@@ -49,11 +50,18 @@ Users should be able to:
 ### Built with
 
 - Semantic HTML5 markup
-- SCSS
 - Flexbox
 - CSS Grid
+- [Sass](https://sass-lang.com/) - CSS with superpowers
+- [Axios](https://axios-http.com/) - Promise based HTTP client
 - [React](https://reactjs.org/) - JS library
 - [Easy Peasy](https://easy-peasy.vercel.app/) - Easy Peasy is an abstraction of Redux
+
+### APIs
+
+- [Spott](https://rapidapi.com/Spott/api/spott/details) - Locate user by IP
+- [OpenWeather](https://openweathermap.org/api) - Weather & Forecast information
+- [GeoDB Cities](https://rapidapi.com/wirefreethought/api/geodb-cities/details) - Search Cities
 
 
 ## Author

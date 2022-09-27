@@ -24,7 +24,6 @@ const Cities = () => {
 
   const selectCity = (city) => {
     setSelectedCity(city);
-    console.log("Selected City", city);
     setInputValue("");
     getCities("");
   };

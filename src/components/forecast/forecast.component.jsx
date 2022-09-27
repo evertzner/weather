@@ -2,23 +2,18 @@ import React from "react";
 import { useStoreState } from "easy-peasy";
 import "./forecast.styles.scss";
 
-const noons = [4, 12, 20, 28, 36];
-
 const Forecast = () => {
   const weatherForecast = useStoreState((state) => state.weatherForecast);
 
-  console.log("weatherForecast", weatherForecast);
-
   function getDayName(dayStr, locale, noon) {
     var date = new Date(dayStr);
-    if (noon === 4) return "Today";
     return date.toLocaleDateString(locale, { weekday: "long" });
   }
 
   return (
     <div className="forecast">
       {weatherForecast.list.map((wf, index) => {
-        if (noons.includes(index)) {
+        if (wf.dt_txt.substr(-8, 5) === "12:00") {
           const weatherIcon = wf.weather[0];
           const { main: weatherMain } = wf;
           return (

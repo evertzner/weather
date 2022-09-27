@@ -9,17 +9,12 @@ import "./container.styles.scss";
 
 const Container = () => {
   const getCurrentCity = useStoreActions((actions) => actions.getCurrentCity);
-  //const currentCity = useStoreState((state) => state.currentCity);
   const weather = useStoreState((state) => state.weather);
   const weatherForecast = useStoreState((state) => state.weatherForecast);
-
-  //const getWeather = useStoreActions((actions) => actions.getWeather);
 
   useEffect(() => {
     getCurrentCity();
   }, [getCurrentCity]);
-
-  console.log("weather", weather);
 
   return (
     <div className="container">

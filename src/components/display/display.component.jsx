@@ -6,13 +6,9 @@ const Display = () => {
   const currentCity = useStoreState((state) => state.currentCity);
   const weather = useStoreState((state) => state.weather);
 
-  console.log("CurrentCity", currentCity);
-
   const { name: city } = currentCity;
   const { main: weatherMain } = weather;
   const weatherIcon = weather.weather[0];
-
-  console.log("weather", weather);
 
   return (
     <div className="display">
