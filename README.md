@@ -29,7 +29,6 @@ Users should be able to:
 - See weather for following hours
 - See weather forecast for next 5 days
 - Change city weather by searching it
-- 
 
 ### Screenshots
 
