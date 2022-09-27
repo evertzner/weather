@@ -17,15 +17,16 @@ body {
   margin: 0;
   font-size: 15px;
   background-color: $color-background;
-  padding-bottom: 5rem;
+  padding: 1em;
   font-family: $font-family;
+  color: $color-white;
   display: grid;
   place-content: center;
 }
 
 /* width */
 ::-webkit-scrollbar {
-  width: 0.5rem;
+  width: 0.5em;
   border-radius: 10px;
 }
 

@@ -26,20 +26,22 @@ const Forecast = () => {
               <div className="forecast__day__time">
                 {getDayName(wf.dt_txt, "en-US", index)}
               </div>
-              <div className="forecast__day__pop">{wf.pop * 100}%</div>
+              <div className="forecast__day__pop">
+                {Math.trunc(wf.pop * 100)}%
+              </div>
               <img
                 className="forecast__day__icon"
                 alt={weatherIcon.description}
                 src={`http://openweathermap.org/img/wn/${weatherIcon.icon}@2x.png`}
               ></img>
               <div className="forecast__day__max-min">
-                {Math.ceil(weatherMain.temp_max)}º{" "}
+                {Math.ceil(weatherMain.temp_max)}º{" / "}
                 {Math.floor(weatherMain.temp_min)}º
               </div>
             </div>
           );
         }
-        return <div key={wf.dt}></div>;
+        return null;
       })}
     </div>
   );

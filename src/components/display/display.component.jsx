@@ -8,13 +8,15 @@ const Display = () => {
 
   console.log("CurrentCity", currentCity);
 
-  const { main: weatherMain, name: cityName } = weather;
+  const { name: city } = currentCity;
+  const { main: weatherMain } = weather;
   const weatherIcon = weather.weather[0];
 
   console.log("weather", weather);
 
   return (
     <div className="display">
+      <div className="display__city">{city}</div>
       <div className="display__temperature">
         {Math.round(weatherMain.temp)}º
       </div>
@@ -23,13 +25,14 @@ const Display = () => {
         alt={weatherIcon.description}
         src={`http://openweathermap.org/img/wn/${weatherIcon.icon}@2x.png`}
       ></img>
-      <div className="display__city">{cityName}</div>
-      <div className="display__max-min">
-        {Math.round(weatherMain.temp_max)}º / {Math.round(weatherMain.temp_min)}
-        º
-      </div>
-      <div className="display__feels-like">
-        Feels like {Math.round(weatherMain.feels_like)}º
+      <div className="display__footer">
+        <div className="display__footer__max-min">
+          {Math.round(weatherMain.temp_max)}º /{" "}
+          {Math.round(weatherMain.temp_min)}º
+        </div>
+        <div className="display__footer__feels-like">
+          Feels like {Math.round(weatherMain.feels_like)}º
+        </div>
       </div>
     </div>
   );
