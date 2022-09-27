@@ -23,10 +23,10 @@ const Container = () => {
 
   return (
     <div className="container">
+      <Cities />
       {Object.keys(weather).length === 0 || <Display />}
       {Object.keys(weatherForecast).length === 0 || <DayProjection />}
       {Object.keys(weatherForecast).length === 0 || <Forecast />}
-      <Cities />
     </div>
   );
 };

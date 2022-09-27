@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useStoreState, useStoreActions } from "easy-peasy";
 
+import "./cities.styles.scss";
+
 const Cities = () => {
   const getCities = useStoreActions((actions) => actions.getCities);
   const setSelectedCity = useStoreActions((actions) => actions.setSelectedCity);
@@ -23,18 +25,33 @@ const Cities = () => {
   const selectCity = (city) => {
     setSelectedCity(city);
     console.log("Selected City", city);
+    setInputValue("");
+    getCities("");
   };
 
   return (
-    <>
-      <input value={inputValue} type="text" onChange={searchCity} />
-      {cities.data &&
-        cities.data.map((c) => (
-          <div key={c.id} onClick={() => selectCity(c)}>
-            {c.name}, {c.region}, {c.country}
-          </div>
-        ))}
-    </>
+    <div className="cities">
+      <input
+        className="cities__search"
+        value={inputValue}
+        type="text"
+        onChange={searchCity}
+        placeholder="Search city"
+      />
+      {cities.data && (
+        <div className="cities__list">
+          {cities.data.map((c) => (
+            <div
+              className="cities__list__city"
+              key={c.id}
+              onClick={() => selectCity(c)}
+            >
+              {c.name}, {c.region}, {c.country}
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
   );
 };
 

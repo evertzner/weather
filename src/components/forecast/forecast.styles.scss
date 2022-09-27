@@ -13,6 +13,10 @@
   border-radius: 5px;
   margin-bottom: 2em;
 
+  @media only screen and (max-width: $bp-small) {
+    font-size: 0.7em;
+  }
+
   &__day {
     display: grid;
     grid-template-columns: 2fr repeat(3, 1fr);

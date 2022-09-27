@@ -1,3 +1,5 @@
+@import "../../styles/variables";
+
 .display {
   padding: 2em;
   display: grid;
@@ -13,6 +15,10 @@
     font-size: 40px;
     justify-self: center;
     text-align: center;
+
+    @media only screen and (max-width: $bp-small) {
+      font-size: 3em;
+    }
   }
 
   &__temperature {

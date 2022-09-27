@@ -1,0 +1,46 @@
+@import "../../styles/variables";
+
+.cities {
+  position: relative;
+  &__search {
+    width: 100%;
+    font-size: 20px;
+    outline: none;
+    padding: 0.4em;
+    border-radius: 5px;
+    border: none;
+    background-color: $color-background-card;
+    color: $color-white;
+    margin-bottom: 0.2em;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    font-size: 20px;
+    width: 100%;
+    background-color: $color-background-card-secondary;
+    border-radius: 5px;
+    overflow: hidden;
+
+    @media only screen and (max-width: $bp-small) {
+      font-size: 0.9em;
+    }
+
+    &__city {
+      padding: 0.5em 1em;
+      cursor: pointer;
+
+      &:hover {
+        background-color: $color-background;
+      }
+    }
+  }
+}
+
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: $color-white;
+  opacity: 1; /* Firefox */
+}
