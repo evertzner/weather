@@ -1,8 +1,8 @@
-import React from "react";
-import { StoreProvider, createStore } from "easy-peasy";
-import StoreModel from "./store/store-model";
-import Container from "./components/container/container.component";
-import "./App.styles.scss";
+import React from 'react';
+import { StoreProvider, createStore } from 'easy-peasy';
+import StoreModel from './store/store-model';
+import Container from './components/container/container.component';
+import './App.styles.scss';
 
 const store = createStore(StoreModel);
 

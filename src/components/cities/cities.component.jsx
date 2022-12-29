@@ -1,13 +1,13 @@
-import React, { useState } from "react";
-import { useStoreState, useStoreActions } from "easy-peasy";
+import React, { useState } from 'react';
+import { useStoreState, useStoreActions } from 'easy-peasy';
 
-import "./cities.styles.scss";
+import './cities.styles.scss';
 
 const Cities = () => {
   const getCities = useStoreActions((actions) => actions.getCities);
   const setSelectedCity = useStoreActions((actions) => actions.setSelectedCity);
   const cities = useStoreState((state) => state.cities);
-  const [inputValue, setInputValue] = useState("");
+  const [inputValue, setInputValue] = useState('');
   const [timer, setTimer] = useState(null);
 
   const searchCity = (e) => {
@@ -24,8 +24,8 @@ const Cities = () => {
 
   const selectCity = (city) => {
     setSelectedCity(city);
-    setInputValue("");
-    getCities("");
+    setInputValue('');
+    getCities('');
   };
 
   return (
@@ -40,11 +40,7 @@ const Cities = () => {
       {cities.data && (
         <div className="cities__list">
           {cities.data.map((c) => (
-            <div
-              className="cities__list__city"
-              key={c.id}
-              onClick={() => selectCity(c)}
-            >
+            <div className="cities__list__city" key={c.id} onClick={() => selectCity(c)}>
               {c.name}, {c.region}, {c.country}
             </div>
           ))}

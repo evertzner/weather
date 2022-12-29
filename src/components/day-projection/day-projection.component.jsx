@@ -1,7 +1,7 @@
-import React from "react";
-import { useStoreState } from "easy-peasy";
+import React from 'react';
+import { useStoreState } from 'easy-peasy';
 
-import "./day-projection.styles.scss";
+import './day-projection.styles.scss';
 
 const DayProjection = () => {
   const weatherForecast = useStoreState((state) => state.weatherForecast);
@@ -14,20 +14,16 @@ const DayProjection = () => {
           const { main: weatherMain } = wf;
           return (
             <div key={wf.dt} className="day-projection__item">
-              <div className="day-projection__item__time">
-                {wf.dt_txt.substr(-8, 5)}
-              </div>
+              <div className="day-projection__item__time">{wf.dt_txt.substr(-8, 5)}</div>
               <img
                 className="day-projection__item__icon"
                 alt={weatherIcon.description}
                 src={`http://openweathermap.org/img/wn/${weatherIcon.icon}@2x.png`}
-              ></img>
+              />
               <div className="day-projection__item__temperature">
                 {Math.round(weatherMain.temp)}º
               </div>
-              <div className="day-projection__item__pop">
-                {Math.trunc(wf.pop * 100)}%
-              </div>
+              <div className="day-projection__item__pop">{Math.trunc(wf.pop * 100)}%</div>
             </div>
           );
         }

@@ -1,11 +1,11 @@
-import React, { useEffect } from "react";
-import { useStoreState, useStoreActions } from "easy-peasy";
-import Display from "../display/display.component";
-import Forecast from "../forecast/forecast.component";
-import Cities from "../cities/cities.component";
-import DayProjection from "../day-projection/day-projection.component";
+import React, { useEffect } from 'react';
+import { useStoreState, useStoreActions } from 'easy-peasy';
+import Display from '../display/display.component';
+import Forecast from '../forecast/forecast.component';
+import Cities from '../cities/cities.component';
+import DayProjection from '../day-projection/day-projection.component';
 
-import "./container.styles.scss";
+import './container.styles.scss';
 
 const Container = () => {
   const getCurrentCity = useStoreActions((actions) => actions.getCurrentCity);

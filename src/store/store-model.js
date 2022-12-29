@@ -1,5 +1,5 @@
-import { action, thunk } from "easy-peasy";
-import axios from "axios";
+import { action, thunk } from 'easy-peasy';
+import axios from 'axios';
 
 const StoreModel = {
   currentCity: {},
@@ -9,12 +9,12 @@ const StoreModel = {
   // Thunks
   getCurrentCity: thunk(async (actions) => {
     const options = {
-      method: "GET",
-      url: "https://spott.p.rapidapi.com/places/ip/me",
+      method: 'GET',
+      url: 'https://spott.p.rapidapi.com/places/ip/me',
       headers: {
-        "X-RapidAPI-Key": "e50df66fc4msh37d4c40d3aeadaap17a797jsne30f67d01585",
-        "X-RapidAPI-Host": "spott.p.rapidapi.com",
-      },
+        'X-RapidAPI-Key': 'e50df66fc4msh37d4c40d3aeadaap17a797jsne30f67d01585',
+        'X-RapidAPI-Host': 'spott.p.rapidapi.com'
+      }
     };
     const response = await axios.request(options);
 
@@ -29,24 +29,24 @@ const StoreModel = {
     getWeatherForecast(actions, data);
   }),
   getCities: thunk(async (actions, city) => {
-    if (city === "") {
+    if (city === '') {
       actions.setCities([]);
       return;
     }
     const options = {
-      method: "GET",
-      url: "https://wft-geo-db.p.rapidapi.com/v1/geo/cities",
+      method: 'GET',
+      url: 'https://wft-geo-db.p.rapidapi.com/v1/geo/cities',
       params: {
-        limit: "10",
+        limit: '10',
         namePrefix: city,
-        sort: "+name",
-        languageCode: "en",
-        types: "CITY",
+        sort: '+name',
+        languageCode: 'en',
+        types: 'CITY'
       },
       headers: {
-        "X-RapidAPI-Key": "e50df66fc4msh37d4c40d3aeadaap17a797jsne30f67d01585",
-        "X-RapidAPI-Host": "wft-geo-db.p.rapidapi.com",
-      },
+        'X-RapidAPI-Key': 'e50df66fc4msh37d4c40d3aeadaap17a797jsne30f67d01585',
+        'X-RapidAPI-Host': 'wft-geo-db.p.rapidapi.com'
+      }
     };
     const response = await axios.request(options);
     if (!response) {
@@ -60,7 +60,7 @@ const StoreModel = {
     actions.setCurrentCity(city);
 
     const data = {
-      coordinates: { latitude: city.latitude, longitude: city.longitude },
+      coordinates: { latitude: city.latitude, longitude: city.longitude }
     };
     getWeather(actions, data);
     getWeatherForecast(actions, data);
@@ -77,7 +77,7 @@ const StoreModel = {
   }),
   setCities: action((state, cities) => {
     state.cities = cities;
-  }),
+  })
 };
 
 export default StoreModel;
